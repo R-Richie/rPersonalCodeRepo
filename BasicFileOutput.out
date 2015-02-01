@@ -1,0 +1,28 @@
+1:package com.r.base.io;
+2:
+3:import java.io.BufferedReader;
+4:import java.io.BufferedWriter;
+5:import java.io.FileWriter;
+6:import java.io.IOException;
+7:import java.io.PrintWriter;
+8:import java.io.StringReader;
+9:
+10:public class BasicFileOutput {
+11:
+12:	static String file = "BasicFileOutput.out";
+13:
+14:	public static void main(String[] args) throws IOException {
+15:		BufferedReader in = new BufferedReader(new StringReader(
+16:				BufferedInputFile
+17:						.read("src/com/r/base/io/BasicFileOutput.java")));
+18:		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(
+19:				file)));
+20:		int lineCount = 1;
+21:		String s;
+22:		while ((s = in.readLine()) != null)
+23:			out.println(lineCount++ + ":" + s);
+24:		out.close();
+25:		System.out.println(BufferedInputFile.read(file));
+26:	}
+27:
+28:}
